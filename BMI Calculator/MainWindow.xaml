@@ -43,7 +43,7 @@
         <TextBlock x:Name="xYourBMIResults" Grid.Column="4" HorizontalAlignment="Left"  Grid.Row="2" TextWrapping="Wrap"  Text="BMI Results" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="414" FontWeight="Bold" FontSize="60"/>
         <TextBlock x:Name="xYourBMIMessage" Grid.ColumnSpan="3" Grid.Column="4" HorizontalAlignment="Left"  Height="102" Grid.Row="4" Grid.RowSpan="2" TextWrapping="Wrap"  Text="Message" VerticalAlignment="Top" Width="412" FontWeight="Bold" FontSize="16"/>
 
-        <Button Grid.Column="1" Grid.Row="6" x:Name="SubmitBtn" Content="Submit" Height="18" Width="100"/>
+        <Button Grid.Column="1" Grid.Row="6" x:Name="SubmitBtn" Content="Submit" Height="18" Width="100" Click="SubmitBtn_Click"/>
         <Button Grid.Column="2" Grid.Row="6" x:Name="ClearBtn" Content="Clear" Height="18" Width="100" Click="ClearBtn_Click"/>
         <Button Grid.Column="4" Grid.Row="6" x:Name="ImportBtn" Content="Import" Height="18" Width="100"/>
         <Button Grid.Column="6" Grid.Row="6" x:Name="ExitBtn" Content="Exit" Height="18" Width="100" Click="ExitBtn_Click"/>
