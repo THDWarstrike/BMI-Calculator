@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace BMI_Calculator
@@ -24,7 +26,7 @@ namespace BMI_Calculator
     [XmlRoot("BMI Calc", Namespace = "www.bmicalc.ninja")]
     public partial class MainWindow : Window
     { 
-        public string FilePath = "C:/Temp/";
+        public string FilePath = "C:/Users/mchugh_keith/source/Temp/";
         public string FileName = "YourBMI.xml";
         public class Customer
         {
@@ -114,8 +116,29 @@ namespace BMI_Calculator
 
             TextWriter writer = new StreamWriter(FilePath + FileName);
             XmlSerializer ser = new XmlSerializer(typeof(Customer));
+
             ser.Serialize(writer, customer1);
             writer.Close();
+
+
+        }
+        private void OnLoadStart()
+        {
+            Customer cust = new Customer();
+            
+            XmlSerializer des = new XmlSerializer(typeof(Customer));
+            using (XmlReader reader = XmlReader.Create(FilePath + FileName))
+            {
+                cust = (Customer)des.Deserialize(reader);
+
+                xLastNameBox.Text = cust.lastName;
+                xFirstNameBox.Text = cust.firstName;
+                xPhoneBox.Text = cust.phoneNumber;
+            }
+
+            DataSet xmlData = new DataSet();
+            xmlData.ReadXml(FilePath + FileName, XmlReadMode.Auto);
+            xDataGrid.ItemsSource = xmlData.Tables[0].DefaultView;
         }
     }
 }
