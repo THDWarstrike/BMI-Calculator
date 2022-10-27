@@ -29,19 +29,19 @@ namespace BMI_Calculator
         public class Customer
         {
             [XmlAttribute("Last Name")]
-            public string lastName { get; set; }
+            public string? lastName { get; set; }
             [XmlAttribute("First Name")]
-            public string firstName { get; set; }
+            public string? firstName { get; set; }
             [XmlAttribute("Phone Number")]
-            public string phoneNumber { get; set; }
+            public string? phoneNumber { get; set; }
             [XmlAttribute("Height")]
-            public string heigthInches { get; set; }
+            public int heigthInches { get; set; }
             [XmlAttribute("Weight")]
-            public string weightIbs { get; set; }
+            public int weightIbs { get; set; }
             [XmlAttribute("Customer BMI")]
             public int custBMI { get; set; }
             [XmlAttribute("Status")]
-            public string statusTitle { get; set; }
+            public string? statusTitle { get; set; }
 
            
         }
